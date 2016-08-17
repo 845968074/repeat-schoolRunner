@@ -1,21 +1,25 @@
-footer{
+footer {
     background-color: #ece8cf;
     height: 85px;
     text-align: center;
     padding-top: 15px;
     color: #959595;
 }
-#divFooter{
+
+#divFooter {
     margin-top: 8px;
 }
-a{
+
+a {
     margin-right: 15px;
     color: #949494;
 }
-a:hover{
+
+a:hover {
     color: #959595;
-    text-decoration:none;
+    text-decoration: none;
 }
-a:visited{
-    text-decoration:none;
+
+a:visited {
+    text-decoration: none;
 }

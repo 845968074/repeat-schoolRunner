@@ -13,8 +13,8 @@ import $ from 'jquery';
 
 const route = <Router history={hashHistory}>
     <Route path="/" component={App}>
-        <IndexRedirect to='/LoginPage'/>
-        <Route path='LoginPage' component={LoginPage}/>
+        <IndexRedirect to='/api/sessions'/>
+        <Route path='/api/sessions' component={LoginPage}/>
         <Route path='personalInfoPage' component={personalInfo}/>
         <Route path='homePage' component={HomePage} />
         <Route path='bookPage' component={Book}/>

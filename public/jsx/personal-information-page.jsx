@@ -1,7 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router';
 
-class InformModule extends React.Component {
+import Logo from './logo.jsx';
+require('../css/logo.css');
+import Footer from './footer.jsx';
+require('../css/footer.css');
+class InformModulePage extends React.Component {
     click(){
         let email = $('#email').val();
         let tel = $('#mobilePhone').val();
@@ -40,5 +44,16 @@ class InformModule extends React.Component {
         )
     }
 }
-
+class InformModule extends React.Component
+{
+  render()
+  {
+    return(
+    <div>
+     <Logo/>
+      <InformModulePage/>
+      <Footer/>
+    </div>
+    )}
+}
 export default InformModule;

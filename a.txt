@@ -9,18 +9,20 @@ class Navigation extends React.Component {
   render() {
     return (
       <div className="homePage">
-          <nav className="navbar navbar-fixed-top">
-            <div className="container">
+        <div>
+          <nav className="navbar navbar-default" role="navigation">
+            <div>
               <ul className="nav navbar-nav">
-                <li><Link to="/homePage"><h3 className="color">首页</h3></Link></li>
-                <li><Link to="/bookPage"><h3 className="color">图书记录</h3></Link></li>
-                <li><Link to="/bookPage"><h3 className="color">图书帮寄</h3></Link></li>
-                <li><Link to="/deliveryPage"><h3 className="color">快递帮寄</h3></Link></li>
-                <li><Link to="/personalInfoPage"><h3 className="color">个人信息</h3></Link></li>
+                <li><Link to="/homePage">首页</Link></li>
+                <li><Link to="/bookPage">图书记录</Link></li>
+                <li><Link to="/bookPage">图书帮寄</Link></li>
+                <li><Link to="/deliveryPage">快递帮寄</Link></li>
+                <li><Link to="/personalInfoPage">个人信息</Link></li>
               </ul>
             </div>
           </nav>
         </div>
+      </div>
     )
   }
 }
