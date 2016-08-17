@@ -41,6 +41,7 @@
     "react-dom": "^15.3.0",
     "react-router": "^2.6.1",
     "superagent": "^2.2.0",
+    "superagent-jsonp": "^0.1.1",
     "url-loader": "^0.5.7"
   }
 }

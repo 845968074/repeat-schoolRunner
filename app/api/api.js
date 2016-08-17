@@ -1,5 +1,5 @@
 import express from 'express';
-import loginApi from './login-router.js';
+import sessionsApi from './sessions.js';
 const router = express.Router();
-router.use('/sessions', loginApi);
+router.use('/sessions', sessionsApi);
 export default router;

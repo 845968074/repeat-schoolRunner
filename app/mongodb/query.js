@@ -1,14 +1,43 @@
 let userName = "";
 import User from  './user.js'
 import _ from 'lodash';
+class xiyouAPI {
+  xiyou(userId, password) {
+    $.ajax({
+      url: 'http://api.xiyoumobile.com/xiyoulibv2/user/login',
+      type: 'get',
+      dataType: 'jsonp',
+      data: {
+        userId:$('#userId')[0].value,
+        password:$('#password')[0].value
+      }
+    })
+      .done(function (returnData) {
+          var Session = returnData.Detail;
+          if (Session == 'ACCOUNT_ERROR') {
+            window.location.href = "index.html";
+            alert('该用户不能登录哦(⊙o⊙)');
+          }
+          else
+          // window.location.href = "main.html?session=" + Session;
+            window.location.href = "/#/personalInfoPage";
+
+        }
+      )
+      .fail(function () {
+        alert("error");
+      })
+  }
+}
+module.exports = xiyouAPI;
 /*exports.login = function (req, res) {
  let name = req.body.ID;
  let password = req.body.Password;
  User.findOne({userId: name}, function (err, user) {
  if (err) res.send(err.message);
-   console.log(user);
+ console.log(user);
  if (user == null) {
-   console.log("hello");
+ console.log("hello");
  let f = new User({userId:name,password:password});
  f.save(function (err) {
  console.log('save status:', err ? 'failed' : 'success');
@@ -39,7 +68,7 @@ exports.login = function (req, res) {
       console.log(req.body);
       if (err) res.send(err.message);
       console.log(users);
-      if (users=='') {
+      if (users == '') {
         res.sendStatus(201);
         let student = new User({
           userId: usersId,
@@ -47,24 +76,25 @@ exports.login = function (req, res) {
           tel: '',
           email: ''
         });
-        student.save(function (err,users) {
+        student.save(function (err, users) {
           console.log('save status:', err ? 'failed' : 'success');
           console.log(users);
         });
-      }/*
-        res.status(500).send('NO INFO');
-      } else {
-        if (users.password != password) {
-          res.status(500).send('passwordError');
-        } else {
-          userName = userId;
-          if (users.tel && users.email) {
-            res.send('SUCCESS');
-          } else {
-            res.send('personalInfo');
-          }
-        }
-      }*/
+      }
+      /*
+       res.status(500).send('NO INFO');
+       } else {
+       if (users.password != password) {
+       res.status(500).send('passwordError');
+       } else {
+       userName = userId;
+       if (users.tel && users.email) {
+       res.send('SUCCESS');
+       } else {
+       res.send('personalInfo');
+       }
+       }
+       }*/
     })
   }
 };

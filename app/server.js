@@ -8,8 +8,8 @@ import bodyParse from 'body-parser';
 import db from './mongodb/db';
 const app = express();
 const compiler = webpack(webpackConfig);
-app.use(bodyParse.json());/*
-app.use(bodyParse.urlencoded({extended: true}));*/
+app.use(bodyParse.json());
+app.use(bodyParse.urlencoded({extended: true}));
 app.use(webpackDevMiddleware(compiler, {
   noInfo: true,
   lazy: false,
