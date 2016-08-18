@@ -1,35 +1,6 @@
 let userName = "";
 import User from  './user.js'
 import _ from 'lodash';
-class xiyouAPI {
-  xiyou(userId, password) {
-    $.ajax({
-      url: 'http://api.xiyoumobile.com/xiyoulibv2/user/login',
-      type: 'get',
-      dataType: 'jsonp',
-      data: {
-        userId:$('#userId')[0].value,
-        password:$('#password')[0].value
-      }
-    })
-      .done(function (returnData) {
-          var Session = returnData.Detail;
-          if (Session == 'ACCOUNT_ERROR') {
-            window.location.href = "index.html";
-            alert('该用户不能登录哦(⊙o⊙)');
-          }
-          else
-          // window.location.href = "main.html?session=" + Session;
-            window.location.href = "/#/personalInfoPage";
-
-        }
-      )
-      .fail(function () {
-        alert("error");
-      })
-  }
-}
-module.exports = xiyouAPI;
 /*exports.login = function (req, res) {
  let name = req.body.ID;
  let password = req.body.Password;
