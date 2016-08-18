@@ -9,16 +9,16 @@ describe('sessions-spec', () => {
     User.find().remove(finish(done));
   });
 
-  fit('post true id and password sessions', (done) => {
-    new User({userId: 's03134054', Password: '123456'}).save(function (err, data) {
+  it('post true id and password sessions', (done) => {
+    new User({userId: 's03134054', password: '123456'}).save(function (err, data) {
       if (err) return done.fail(err);
 
-      User.find(function(err, users) {
+      User.find(function (err, users) {
         expect(users.length).toEqual(1);
 
         request(app)
           .post('/api/sessions')
-          .send({userId: 's03134054', Password: '123456'})
+          .send({userId: 's03134054', password: '123456'})
           .expect({httpCode: 201, message: "SUCCESS", newUser: false}, finish(done))
 
       })
@@ -29,13 +29,13 @@ describe('sessions-spec', () => {
   it('post empty id and password 1 sessions', (done) => {
     request(app)
       .post('/api/sessions')
-      .send({userId: '', Password: '123456'})
+      .send({userId: '', password: '123456'})
       .expect({httpCode: 400, message: "数据不能为空"}, finish(done))
   });
   it('post empty id and password 2 sessions', (done) => {
     request(app)
       .post('/api/sessions')
-      .send({userId: 's03134054', Password: ''})
+      .send({userId: 's03134054', password: ''})
       .expect({httpCode: 400, message: "数据不能为空"}, finish(done))
   });
   it('post empty id and password 3 sessions', (done) => {
@@ -47,7 +47,7 @@ describe('sessions-spec', () => {
   it('post error id and password sessions', (done) => {
     request(app)
       .post('/api/sessions')
-      .send({userId: 's03134054', Password: '122456'})
+      .send({userId: 's03134054', password: '122456'})
       .expect({httpCode: 401, message: "用户名或密码有误，登录失败"}, finish(done))
   });
 });

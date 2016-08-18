@@ -26,10 +26,6 @@ app.use(webpackHotMiddleware(compiler, {
 
 app.use(express.static('./public'));
 app.use("/api",loginApi);
-
-/*app.get('/hello', function (req, res) {
-  res.send('Hello, world!');
-});*/
 /*
 app.post('/login',mongodb.login);*/
 /*app.post('/personal',mongodb.modify);*/

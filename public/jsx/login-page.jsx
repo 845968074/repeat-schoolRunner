@@ -12,7 +12,7 @@ class Login extends React.Component {
     super(prop);
     this.state={
       userId:'',
-      Password:''
+      password:''
     }
   }
   render() {
@@ -27,8 +27,8 @@ class Login extends React.Component {
 
           <div className="divClass">
             <label htmlFor="inputPassword">密码</label>
-            <input className="inputClass" type="password" id="Password" placeholder="Password"
-                   value={this.state.Password} onChange={this._onPasswordChange.bind(this)}/>
+            <input className="inputClass" type="password" id="password" placeholder="password"
+                   value={this.state.password} onChange={this._onPasswordChange.bind(this)}/>
           </div>
 
           <div>
@@ -45,13 +45,13 @@ class Login extends React.Component {
   }
   _onPasswordChange(event)
   {
-    this.setState({Password:event.target.value})
+    this.setState({password:event.target.value})
   }
   _onSubmit() {
     request.post('/api/sessions')
       .send({
         userId: this.state.userId,
-        Password: this.state.Password
+        password: this.state.password
       })
       .end((err, res) => {
         if (err) return console.error(err);
