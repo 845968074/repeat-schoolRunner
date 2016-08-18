@@ -29,7 +29,7 @@ import _ from 'lodash';
  });
  };*/
 exports.login = function (req, res) {
-  const userId = req.body.ID;
+  const userId = req.body.userId;
   const password = req.body.password;
   if (_.isEmpty(userId || password)) {
     res.sendStatus(400);
